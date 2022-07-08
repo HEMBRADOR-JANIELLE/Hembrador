@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d&bnyklu1(g^lm+j))fiux!esz79-&p_p*9z6euh2_bshvhvqu'
-
+#SECRET_KEY = 'django-insecure-d&bnyklu1(g^lm+j))fiux!esz79-&p_p*9z6euh2_bshvhvqu'
+SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['abodeessentials.ph']
+ALLOWED_HOSTS = ['abodeessentialsph.pythonanywhere.com']
 
 
 # Application definition
@@ -76,8 +76,11 @@ WSGI_APPLICATION = 'AEsys.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'abodeessentialsp$default',
+        'USER': 'abodeessentialsp',
+        'PASSWORD': 'sicachu19',
+        'HOST': 'abodeessentialsph.mysql.pythonanywhere-services.com',
     }
 }
 
