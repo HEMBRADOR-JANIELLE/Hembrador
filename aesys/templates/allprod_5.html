@@ -1,0 +1,48 @@
+{%extends 'nav.html' %}
+{%block content%}
+{%load static%}
+<!--3 pictures--> 
+	<p  class="header_title">All Products</p>
+	<!--form-->
+
+	 <div class="grid-container_all">
+  <div class="item1_all">
+  		<img  id="img1" onmouseover="setNewImage1()" onmouseout="setOldImage1()"
+				src="{% static 'images/Screenshot 2021-09-30 204424.png' %}"
+				alt="glass" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 60px; ">Glass Mug (₱179)</a></div>
+	<div class="item2_all">
+  		<img id="img2" onmouseover="setNewImage2()" onmouseout="setOldImage2()"
+				src="{% static 'images/Screenshot 2021-09-30 204619.png' %}"
+				alt="placemats" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 50px; ">Nordic Placemat (₱45)</a></div>
+
+  <div class="item3_all">
+  		<img id="img3" onmouseover="setNewImage3()" onmouseout="setOldImage3()"
+				src="{% static 'images/Screenshot 2021-09-30 204746.png' %}"
+				alt="utensils" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 10px; ">24pcs Stainless Utensils (₱1,330)</a></div>
+
+  <div class="item4_all">
+  		<img id="img4" onmouseover="setNewImage4()" onmouseout="setOldImage4()"
+				src="{% static 'images/Screenshot 2021-09-30 205215.png' %}"
+				alt="pitcher" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 80px; ">Pitcher (₱246)</a></div>
+
+	<div class="item5_all">
+	  		<img id="img5" onmouseover="setNewImage5()" onmouseout="setOldImage5()"
+				src="{% static 'images/Screenshot 2021-09-30 205623.png' %}"
+				alt="garbage can" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 0px; ">Japanese-style Garbage Can (₱720)</a></div>
+	</div>
+
+	
+<br>
+<a href="{% url 'product4/' %}" class="button">&laquo; Back</a>
+<a href="{% url 'product6/' %}" class="button">Next  &raquo;</a>
+<br><br>
+<div class="text-center">
+	<a href="{%url 'customerpage/'%}" class="button">Order Here</a>
+</div>
+        </div>
+{% endblock %}

@@ -1,0 +1,163 @@
+storepage.html
+Today
+11:28 AM
+You uploaded an item
+HTML
+storepage.html
+
+{%extends 'nav.html' %}
+{%block content%}
+<script>
+
+	function showprod(selectValue){
+		var dropdown = selectValue.value;
+		document.getElementById("productshow").value = dropdown;
+	}
+	function showqty(selectValue){
+		var qty = selectValue.value;
+		document.getElementById("qtyshow").value = qty;
+	}
+	
+
+	// function getprice(){
+	// 	var prod = document.getElementById('list');
+	// 	var quan = document.getElementById('qty');
+	// 	var price = prod.options[prod.selectedIndex].value;
+	// 	var quantity = quan.options[quan.selectedIndex].value;
+	// 	var total = price * quantity;
+
+	// 	document.getElementById("totalDiv").firstChild.data = "Total: ₱ " + total.toFixed(2);
+
+	// }
+	function clearOrder() {
+		window.location.reload()
+		}
+</script>
+<form method="POST">
+{% csrf_token %}
+<p  class="header_title">Store</p>
+
+<div class="grid-container-oform">
+	<div class="item_form">
+		
+		<fieldset class="form_label">
+			<legend class="oform_text">Customer's Details: </legend>
+			<label class="sform_text"><b>Customer's Name:</b> {{addcust.customer_name}}</label> <br>
+			<label class="sform_text"><b>Address:</b> {{addcust.City_or_Municipality}}, {{addcust.Province}}</label><br>
+			<label class="sform_text"><b>Contact no:</b> {{addcust.contact_no}}</label>
+		<!-- <table id="CustomerTable" class="table" align="center"/>
+
+		<tr class="tr" style="text-align: center;">
+		<th width="200">Full Name</th>
+		<th>Contact no.</th>
+		<th>E-mail</th>
+		<th>City or Municipality</th>
+		<th>Province</th>
+
+
+		</tr>
+		{% for client in cuss %}
+		<tr class="tritem" style="text-align: center;">
+		<td width="200">>{{ forloop.counter}}: {{ client.customer_name }}</td>
+		<td>{{ client.contact_no }}</td>
+		<td>{{ client.customer_email }}</td>
+		<td>{{ client.City_or_Municipality }}</td>
+		<td>{{ client.Province}}</td>
+
+
+	</tr>
+		{% endfor %} -->
+		</fieldset>
+
+		<fieldset class="form_label">
+			<legend class="oform_text">Products: </legend>
+			<select id="list" onchange="showprod(this)" class="form_text" name="product"required>
+				<option class="form_text" value="" disabled selected>------</option>
+					<optgroup label="Appliances">					
+					<option class="form_text" value="ASAHI WOODEN FAN (₱ 3,395)" >ASAHI WOODEN FAN (₱ 3,395)</option>
+					<option class="form_text" value="Nordic LED Floor Lamp (₱1,039)" >Nordic LED Floor Lamp (₱1,039)</option>
+					<option class="form_text" value="Smart TV GELL 43 Inches (₱9,199)" >Smart TV GELL 43 Inches (₱9,199)</option>
+					<option class="form_text" value="Air fryer 4.5L (₱1,599)" >Air fryer 4.5L (₱1,599)</option>
+					<option class="form_text" value="Moon Lamp Humidifier (₱ 159)" >Moon Lamp Humidifier (₱ 159)</option>					
+				</optgroup>
+
+				<optgroup label="Furnitures">
+					<option class="form_text" value="Modern TV Cabinet (₱ 2,061)" >Modern TV Cabinet (₱ 2,061)</option>
+					<option class="form_text" value="VIMLE Sofa (₱ 32,390)" >VIMLE Sofa (₱ 32,390)</option>
+					<option class="form_text" value="IDANÄS Storage bed (₱ 27,990)" >IDANÄS Storage bed (₱ 27,990)</option>
+					<option class="form_text" value="Computer Table (₱ 1,479)" >Computer Table (₱ 1,479)</option>
+					<option class="form_text" value="SMUSSLA Bedside table (₱1,990)" >SMUSSLA Bedside table (₱1,990)</option>
+					<option class="form_text" value="Ergonomics chair Office (₱3,399)" >Ergonomics chair Office (₱3,399)</option>
+					<option class="form_text" value="Vanity (₱1,588)" >Vanity (₱1,588) </option>
+					<option class="form_text" value="ENHET Kitchen (₱43,390)" >ENHET Kitchen (₱43,390)<option>
+					<option class="form_text" value="Bathroom Sink (₱40,840)" >Bathroom Sink (₱40,840)</option>
+				</optgroup>
+
+				<optgroup label="Others">
+					<option class="form_text" value="SPORUP Rug (₱4,990)" >SPORUP Rug (₱4,990)</option>
+					<option class="form_text" value="Ref Organizer Acrylic (₱210)" >Ref Organizer Acrylic (₱210)</option>
+					<option class="form_text" value="13Pcs Kitchenware Set (₱398)" >13Pcs Kitchenware Set (₱398)</option>
+					<option class="form_text" value="Sauce Dispenser (₱46)" >Sauce Dispenser (₱46)</option>
+					<option class="form_text" value="Nordic Ceramic Plate Set (₱399)" >Nordic Ceramic Plate Set (₱399)</option>
+					<option class="form_text" value="Glass Mug (₱179)" >Glass Mug (₱179)</option>
+					<option class="form_text" value="Nordic Placemat (₱45)" >Nordic Placemat (₱45)</option>
+					<option class="form_text" value="24pcs Stainless Utensils (₱1,330)" >24pcs Stainless Utensils (₱1,330)</option>
+					<option class="form_text" value="Pitcher (₱246)" >Pitcher (₱246)</option>
+					<option class="form_text" value="Japanese-style Garbage Can (₱720)" >Japanese-style Garbage Can (₱720)</option>
+					<option class="form_text" value="Aluminum Bathroom Rack (₱159)" >Aluminum Bathroom Rack (₱159)</option>
+					<option class="form_text" value="Shower curtain (₱100)" >Shower curtain (₱100)</option>
+					<option class="form_text" value="Toothbrush Holder (₱499)" >Toothbrush Holder (₱499)</option>
+					<option class="form_text" value="Bathroom Shower Mat (₱26)" >Bathroom Shower Mat (₱26)</option>
+				</optgroup>
+			</select>
+			
+           <label class="qty_align" style="padding-left: 111px;"><b>&nbsp;&nbsp; Qty: </b></label> 
+           <select id="qty" onchange="showqty(this)"class="form_text" name="quantity" required>
+           		<option class="form_text" value="" disabled selected>---</option>
+           		<option class="form_text">1</option>
+           		<option class="form_text">2</option>
+           		<option class="form_text">3</option>
+           		<option class="form_text">4</option>
+           		<option class="form_text">5</option>
+           		<option class="form_text">6</option>
+           		<option class="form_text">7</option>
+           		<option class="form_text">8</option>
+           		<option class="form_text">9</option>
+           		<option class="form_text">10</option>
+           </select>
+           <br><br>
+           <!-- <button type="button" class="button" onclick="getprice()">Add to Cart</button> -->
+      
+		</fieldset>
+	</div>
+
+			
+    		<br><br>
+    	<div class="item_table">
+    	<fieldset class="form_label">
+    		<legend class="oform_text">Delivery Option: </legend>
+    			<legend class="sform_text">Date: </legend>
+    			<input type="date" name="order_date" required>
+			<label class="sform_text">Delivery Type: </label>
+			<select id="delivery" class="form_text" name="delivery_type" required>
+				<option class="form_text" value="" disabled selected>------</option>
+				<option class="form_text">Same Day Delivery</option>
+				<option class="form_text">Normal Delivery</option>
+			</select>
+    	</fieldset>
+    	<br>
+		<fieldset class="tablefield">
+			<legend class="oform_text">Order Summary: </legend> 
+			<label class="sform_text">Product:</label>
+			<input ype="text" id="productshow" disabled>
+
+			<label class="sform_text">Quantity:</label>
+			<input type="text" id="qtyshow" disabled><br><br>
+			
+    		<button type="submit" class="button">Check Out</button>
+			<button type="reset" class="button" onclick="clearOrder()">Clear</button>
+		</fieldset>
+		</div>
+</div>
+</form>
+{%endblock%}

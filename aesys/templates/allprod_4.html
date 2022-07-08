@@ -1,0 +1,49 @@
+{%extends 'nav.html' %}
+{%block content%}
+{%load static%}
+	
+<!--3 pictures--> 
+<p  class="header_title">All Products</p>
+  
+
+	 <div class="grid-container_all">
+  <div class="item1_all">
+  		<img id="img1" onmouseover="setNewImage1()" onmouseout="setOldImage1()"
+				src="{% static 'images/Screenshot 2021-09-30 202636.png'%}"
+				alt="sauce dispencer" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 50px; ">Sauce Dispenser (₱46)</a></div>
+	<div class="item2_all">
+  		<img id="img2" onmouseover="setNewImage2()" onmouseout="setOldImage2()"
+				src="{% static 'images/Screenshot 2021-09-30 202915.png'%}"
+				alt="kitchen enhet" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 40px; ">ENHET Kitchen (₱43,390)</a></div>
+
+  <div class="item3_all">
+  		<img id="img3" onmouseover="setNewImage3()" onmouseout="setOldImage3()"
+				src="{% static 'images/Screenshot 2021-09-30 203403.png'%}"
+				alt="butter box" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 0px; ">Nordic Butter Box w/ Knife (₱335)</a></div>
+
+  <div class="item4_all">
+  		<img id="img4" onmouseover="setNewImage4()" onmouseout="setOldImage4()"
+				src="{% static 'images/Screenshot 2021-09-30 203830.png'%}"
+				alt="table chairs" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 40px; ">Table and Chairs (₱12,290)</a></div>
+
+	<div class="item5_all">
+	  		<img id="img5" onmouseover="setNewImage5()" onmouseout="setOldImage5()"
+				src="{% static 'images/Screenshot 2021-09-30 204012.png'%}"
+				alt="Plate" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 0px; ">Nordic Ceramic Plate Set (₱399)</a></div>
+	</div>
+
+	
+<br>
+<a href="{% url 'product3/' %}" class="button">&laquo; Back</a>
+<a href="{% url 'product5/' %}" class="button">Next  &raquo;</a>
+<br><br>
+<div class="text-center">
+	<a href="{%url 'customerpage/'%}" class="button">Order Here</a>
+</div>
+        </div>
+{% endblock %}

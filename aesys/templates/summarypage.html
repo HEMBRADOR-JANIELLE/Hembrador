@@ -1,0 +1,54 @@
+{%extends 'nav.html' %}
+{%block content%}
+
+<p  class="header_title">{{addcust.customer_name}}'s Order Summary</p>
+
+<div class="grid-container-oform">
+	<div class="item_form">
+		<fieldset class="form_label">
+			<label class="form_label">Details</label>
+			<br>
+				<table class="table" id="CustomerTable" align="center"/>
+
+				<tr class="tr" style="text-align: center;">
+		    		<th width="300">Customer's Name </th>
+		    		<th width="300">Contact# </th>
+		    		<th width="300">City/Municipality </th>
+		    		<th width="300">Province </th>
+		    		<th width="300">E-mail </th>
+		    		<th width="300">Date </th>
+		    		<th width="300">Product </th>
+		    		<th width="300">Quantity </th>
+		    		<th width="300">Delivery Type </th>
+		    		
+		    		
+		  		</tr>
+		  		
+		  		<tr class="tritem" style="text-align: center;">
+					<td width="300">{{addcust.customer_name}}</td>
+					<td>{{ addcust.contact_no }}</td>
+					<td>{{ addcust.City_or_Municipality }}</td>
+					<td>{{ addcust.Province}}</td>
+					<td>{{ addcust.customer_email }}</td>
+					{% for item in addOrder%}
+					<td>{{item.order_date}}</td>
+					<td>{{item.product}}</td>
+					<td>{{item.quantity}}</td>
+					<td>{{item.delivery_type}}</td>
+
+					{%endfor%}
+				</tr>
+				
+		</fieldset>
+		
+	</div>
+	
+</div>
+
+
+	<button class="button" onclick="checker()" ><a class="button" href="/aesys/customerpage/">Order Again</a></button>
+	<button class="button" onclick="checker()" ><a class="button" href="/aesys/{{addcust.id}}/cancelorder">Cancel Order</a></button>
+	<button class="button" onclick="checker()" ><a class="button" href="/aesys/edit/{{ addcust.id }}">Edit Customer Information</a></button>
+	
+</form>
+{%endblock%}

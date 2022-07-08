@@ -1,0 +1,50 @@
+{%extends 'nav.html' %}
+{%block content%}
+{% load static%}
+
+<!--3 pictures--> 
+	<p  class="header_title">All Products</p>
+	<!--form-->
+		
+
+	 <div class="grid-container_all">
+  <div class="item1_all">
+  		<img id="img1" onmouseover="setNewImage1()" onmouseout="setOldImage1()"
+				src="{% static 'images/Screenshot 2021-09-29 202930.png'%}"
+				alt="SPORUP Rug" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 50px;">SPORUP Rug (₱4,990)</a></div>
+	<div class="item2_all">
+  		<img id="img2" onmouseover="setNewImage2()" onmouseout="setOldImage2()"
+				src="{% static 'images/Screenshot 2021-09-29 203354.png'%}"
+				alt="Bed Frame" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 15px;">IDANÄS Storage bed (₱ 27,990)</a></div>
+
+  <div class="item3_all">
+  		<img id="img3" onmouseover="setNewImage3()" onmouseout="setOldImage3()"
+				src="{% static 'images/Screenshot 2021-09-29 203952.png'%}"
+				alt="Study Table" class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 50px;">Computer Table (₱1,479)</a></div>
+
+  <div class="item4_all">
+  		<img id="img4" onmouseover="setNewImage4()" onmouseout="setOldImage4()"
+				src="{% static 'images/Screenshot 2021-09-29 204322.png'%}"
+				alt="Moon Lamp" class="picture_format_all"/></a>
+		<a href="#.html" class="product_name" style="padding-left: 10px;">Moon Lamp Humidifier (₱ 159)</a></div>
+
+	<div class="item5_all">
+  		<img id="img5" onmouseover="setNewImage5()" onmouseout="setOldImage5()"
+				src="{% static 'images/Screenshot 2021-09-29 210005.png'%}"
+				alt="Bedside Table"class="picture_format_all"/></a>
+		<a href="#" class="product_name" style="padding-left: 50px; "> Bedside table (₱1,990)</a></div>
+	</div>
+
+	
+<br>
+<a href="{% url 'product/' %}" class="button">&laquo; Back</a>
+<a href="{% url 'product3/' %}" class="button">Next  &raquo;</a>
+<br><br>
+<div class="text-center">
+	<a href="{%url 'customerpage/'%}" class="button">Order Here</a>
+</div>
+        </div>
+{% endblock %}

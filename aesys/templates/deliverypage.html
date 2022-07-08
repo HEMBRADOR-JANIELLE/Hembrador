@@ -1,0 +1,48 @@
+{%extends 'nav.html' %}
+{%block content%}
+<form method="POST">
+{% csrf_token %}
+		<p  class="header_title">Comment</p>
+
+	<div class="grid-container-oform">
+		<div class="item_form">
+			<fieldset class="form_label">
+				<legend class="oform_text">Order Details: </legend>
+				<legend class="oform_text">Customer: </legend>
+			<label class="sform_text"><b>Customer's Name:</b> {{addcust.customer_name}}</label> <br>
+			<label class="sform_text"><b>Address:</b> {{addcust.City_or_Municipality}}, {{addcust.Province}}</label><br>
+			<label class="sform_text"><b>Contact no:</b> {{addcust.contact_no}}</label><br>
+			{% for item in addOrder%}
+			<label class="sform_text"><b>Date: {{item.order_date}}</b></label>
+			{%endfor%}
+			</fieldset>
+			<!-- <fieldset class="form_label">
+				<legend class="oform_text">Delivery: </legend>
+				<label class="sform_text">Delivery Type: </label> <br>
+			</fieldset> -->
+		</div>
+		<div class="item_table">
+			<fieldset class="tablefield">
+				<legend class="oform_text">Add comment: </legend> 
+				<label class="sform_text">Concern: </label> 
+				<select id="message" class="form_text" name="concern_type" required>
+					<option class="form_text" value="" disabled selected>Select</option>
+					<option class="form_text">Request</option>
+					<option class="form_text">Question</option>
+					<option class="form_text">Complaints</option>
+					<option class="form_text">Others</option>
+				</select>
+				<br><br>
+				<label class="sform_text">Message Box: </label> <br>
+				<textarea placeholder="Enter message here." name="message" class="suggestion_box" required></textarea>
+				<br>
+				<br>
+        		<button type="submit" class="button" onclick="confirm()">Done</button>	
+			</fieldset>
+		</div>
+	</div>
+	<br>
+		
+	</div>
+</form>
+{%endblock%}

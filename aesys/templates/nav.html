@@ -1,0 +1,29 @@
+{% load static %}
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>abodeessentials</title>
+		<link rel="icon" href="{%static 'images/abode.png'%}" type="image/icon type">
+
+	</head>
+	<body>
+<!--topnav--> 
+	<link rel="stylesheet" type="text/css" href="{%static 'css/external.css' %}">
+	<div class="header">
+		<img
+			src="{%static 'images/abode.png'%}"
+			alt="abodeessentials_logo.webp";
+			height="120px"
+			class="logo"/>
+		<span class="web_name">abodeessentials</span>
+		 <a href="{% url 'home' %}" class="topnav_select">Home | </a>  
+		 <a href="{% url 'product/'%}" class="topnav_select">Products | </a> 
+		 <a href="{% url 'customerpage/' %}" class="topnav_select" style="padding-right: 40px;">Order | </a> 
+	</div> 
+
+	<body>
+	{% block content %}
+	{% endblock %}
+	</body>
+</html>

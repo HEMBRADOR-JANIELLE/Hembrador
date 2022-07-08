@@ -1,0 +1,50 @@
+{%extends 'nav.html' %}
+{%block content%}
+{%load static%}
+
+
+<!--logo--> 
+<form method="POST" action="/aesys/edit/update/{{ addcust.id }}">
+{% csrf_token %}
+<p  class="header_title">Edit Customer Information</p>
+
+<div class="grid-container-form">
+<div class="item_form">
+	<label class="form_label">Customer's Information</label>
+	<br><br>
+	<fieldset class="form_label">
+		<label class="sform_text">Full Name: </label>
+		<input type="text" name="customer_name" class="sform_box" value="{{addcust.customer_name}}" placeholder="Surname, Name, M.I" required="">
+
+		<label class="sform_text" style="padding-left: 10px;">Contact No.:</label>
+			<input type="tel" name="contact_no" id="phone" pattern="[0-9]{11}" value="{{addcust.contact_no}}" placeholder="09123456789" class="num_box" required />
+
+		<label class="sform_text" style="padding-left: 10px;"	>E-mail: </label>
+		<input type="email" name="customer_email" class="sform_box" value="{{addcust.customer_email}}" placeholder="example@yahoo.com" required>
+		<br>
+
+		<label class="sform_text">City or Municipality: </label>
+		<input type="text" name="City_or_Municipality" class="sform_box" value="{{addcust.City_or_Municipality}}" placeholder="(e.g Dasmarinas)" required="">
+
+		<label class="sform_text">Province: </label>
+		<input type="text" name="Province" class="sform_box" value="{{addcust.Province}}" placeholder="(e.g Cavite)" required="">
+
+		<br><br>
+		<!-- <button type="submit"class="button">Confirm</button> -->
+
+		<input id="btn" type="submit" class="button" name="btn" value="Update"/>
+
+		<button type="reset" class="button">Clear</button>
+		<br>
+		
+	
+		
+	</fieldset>
+	<br>
+
+
+	</div>
+
+</div>
+</form>
+{%endblock%}
